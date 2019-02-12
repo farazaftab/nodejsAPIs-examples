@@ -8,7 +8,7 @@ const {
 (async () => {
     const sleep = require('util').promisify(setTimeout);
     for (var i = 0; i < 3; i++) {
-        var workerProcess = fork('child-process/support.js', [i]);
+        var workerProcess = fork('child-process/child.js', [i]);
         workerProcess.on('message', (res) => {
             console.log(`Message: Child no ${res.count} send Message: ${res.msg} `);
         });
